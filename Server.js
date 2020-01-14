@@ -29,8 +29,28 @@ app.use((error,req,res,next)=>{
         message:message
     });
 });
+// const app = require("express")();
+// const stripe = require("stripe")("sk_test_4eC39HqLyjWDarjtT1zdp7dc");
 
-app.listen(port);
+// app.use(require("body-parser").text());
+
+// app.listen(port);
+// app.post("/charge", async (req, res) => {
+//     try {
+//       let {status} = await stripe.charges.create({
+//         amount: 2000,
+//         currency: "usd",
+//         description: "An example charge",
+//         source: req.body
+//       });
+  
+//       res.json({status});
+//     } catch (err) {
+//       console.log(err);
+//       res.status(500).end();
+//     }
+//   });
+//   app.listen(8008, () => console.log("Listening on port 8008"));
 
 
 console.log('todo list RESTful API server started on: ' + port);
