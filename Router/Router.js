@@ -3,6 +3,7 @@ module.exports = function(app) {
     const todoList3=require('../Controller/Contact_controller');
     const todoList4=require('../Controller/Billing_controller');
     const todoList5=require('../Controller/bill');
+    const todoList6=require('../Controller/Email_controller');
      const isAuth=require('../Middleware/isAuth')
     
      app.route('/Signup')
@@ -29,6 +30,10 @@ module.exports = function(app) {
     .get(todoList4.get_a_data);
    
     app.route('/Bill')
-    .post(todoList5.payUMoneyPayment)
+    .post(todoList5.payUMoneyPayment);
+
+    app.route('/email')
+    .post(todoList6.nodemailer1)
+
     
   };
