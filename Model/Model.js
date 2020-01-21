@@ -3,7 +3,7 @@ var Schema = mongoose.Schema;
 
 
 var TaskSchema = new Schema({
-Firstname: {
+username: {
     type: String,
     required: true
 },

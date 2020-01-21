@@ -4,6 +4,7 @@ module.exports = function(app) {
     const todoList4=require('../Controller/Billing_controller');
     const todoList5=require('../Controller/bill');
     const todoList6=require('../Controller/Email_controller');
+    const todoList8=require('../Controller/Admin_controller');
      const isAuth=require('../Middleware/isAuth')
     
      app.route('/Signup')
@@ -34,6 +35,14 @@ module.exports = function(app) {
 
     app.route('/email')
     .post(todoList6.nodemailer1)
+    
+    //Desktopmodel
+app.route('/Admin')
+.post(todoList8.post)
+.get(todoList8.list_all_tasks);
 
+app.route('/Admin/:id')
+.put(todoList8.update_a_task )
+.delete(todoList8.delete_a_task);
     
   };

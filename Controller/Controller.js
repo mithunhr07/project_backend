@@ -15,6 +15,7 @@ exports.get_a_data = function(req, res) {
 exports. signup= function(req, res){
   const reg_email=/^[a-zA-Z0-9]+@+[a-zA-Z0-9]+.+[A-z]/;
   const reg_mob=/^[0-9]{10}$/;
+  const reg_username=/^[A-Za-z]{5,15}$/;
   const reg_pwd=/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).{4,8}$/;
   if(!reg_pwd.test(req.body.password)){
     console.log(req.body.password)
@@ -27,8 +28,8 @@ exports. signup= function(req, res){
       res.send("password missmatch");
     }
   }
-  if(!reg_mob.test(req.body.Mobnum)){
-    res.send('Mobile number is invalid');
+  if(!reg_username.test(req.body.username)){
+    res.send('username is invalid');
   }
   if(reg_email.test(req.body.email)){
     UserData.find({email: req.body.email},function(err, data){
@@ -85,13 +86,13 @@ exports.delete_a_task = function(req, res) {
 
 exports.userSignin = (req,res,next) =>{
   console.log(req.body)
-  const Mobnum = req.body.Mobnum;
+  const username = req.body.username;
   const password = req.body.password;
   let loadedUser;
-  UserData.findOne({Mobnum: Mobnum})
+  UserData.findOne({username: username})
   .then(user =>{
     if(!user){
-      const error = new Error('A user with this mobile number could not be found.');
+      const error = new Error('A user with this name could not be found.');
       error.statusCode = 401;
       throw error;
     
@@ -107,10 +108,10 @@ exports.userSignin = (req,res,next) =>{
     }
     const token = jwt.sign(
     {
-      Mobnum: loadedUser.Mobnum,
+      username: loadedUser.username,
       userId:loadedUser._id.toString()
     },'secret')
-    return res.status(200).json({token: token, userId: loadedUser._id.toString(), Mobnum: loadedUser.Mobnum})
+    return res.status(200).json({token: token, userId: loadedUser._id.toString(), username: loadedUser.username})
   })
   .catch(err => {
     if (!err.statusCode) {
