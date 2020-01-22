@@ -8,32 +8,32 @@ type:Number,
 required:true
 },
 
-EmpId:{
+UserName:{
 type:String,
 required:true,
 },
 
-FirstName:{
+UserAddress:{
 type:String,
 required:true,
 },
 
-LastName:{
+Machinery_Name:{
 type:String,
 required:true,
 },
 
-Date_of_Birth:{
+Hours:{
 type:String,
 required:true,
 },
 
-Sex:{
+Price:{
 type:String,
 required:true,
 },
 
-JoiningDate:{
+Rent_On_Date:{
 type:String,
 required:true,
 },

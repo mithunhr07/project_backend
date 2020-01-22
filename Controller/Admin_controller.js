@@ -10,7 +10,7 @@ const User = require('../Model/Admin_model');
 // const User =require('../Model/LeaveModel');
 
 exports.list_all_tasks = function (req, res) {
-    console.log('hi')
+    // console.log('hi')
 User.find({}, function (err, desktop) {
 if (err)
 res.send(err);
