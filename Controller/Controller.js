@@ -85,7 +85,7 @@ exports.delete_a_task = function(req, res) {
 
 
 exports.userSignin = (req,res,next) =>{
-  console.log(req.body)
+  console.log(req.body,"new")
   const username = req.body.username;
   const password = req.body.password;
   let loadedUser;
