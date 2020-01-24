@@ -5,6 +5,7 @@ module.exports = function(app) {
     const todoList5=require('../Controller/bill');
     const todoList6=require('../Controller/Email_controller');
     const todoList8=require('../Controller/Admin_controller');
+    const todoList9=require('../Controller/Service_controller');
      const isAuth=require('../Middleware/isAuth')
     
      app.route('/Signup')
@@ -44,5 +45,9 @@ app.route('/Admin')
 app.route('/Admin/:id')
 .put(todoList8.update_a_task )
 .delete(todoList8.delete_a_task);
+
+app.route('/Services')
+.get(todoList9.get_machinery )
+.post(todoList9.Create)
     
   };
