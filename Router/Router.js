@@ -15,7 +15,8 @@ module.exports = function(app) {
     app.route('/Signin')
     .post(todoList.userSignin,isAuth);
 
-    
+    app.route('/reset')
+    .put(todoList.changepassword)
     
 
     app.route('/Signup/:SignupId')
