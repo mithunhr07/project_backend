@@ -27,9 +27,12 @@ email:{
 Mobnum:{
     type: Number,
     required: true
-}
+},
 
-
+role:{
+    type:String,
+    default:"user"
+}  
 });
 
 module.exports = mongoose.model('Tasks', TaskSchema);
