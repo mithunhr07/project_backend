@@ -46,7 +46,11 @@ required:true,
 MobileNo:{
 type:Number,
 required:true,
-}
+},
+
+Drivers:{
+    type:String
+    }
 });
 
 module.exports = mongoose.model('Userlist', adminSchema);

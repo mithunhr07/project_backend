@@ -8,7 +8,7 @@ Machine_Name: {
     required: true
 },
 Price:{
-    type: Number,
+    type: String,
     required:true
 },
 
